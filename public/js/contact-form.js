@@ -5,7 +5,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
     const formData = new FormData(form);
 
     try {
-        const response = await fetch("/contact", {  // Исправьте URL
+        const response = await fetch("/contact", {
             method: 'POST',
             body: formData,
             headers: {

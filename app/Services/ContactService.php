@@ -11,7 +11,6 @@ class ContactService
     public function storeContact(array $data)
     {
         $contact = Contact::create($data);
-
         Mail::to(config('mail.admin_email'))->send(new ContactFormSubmitted($contact));
 
         return $contact;

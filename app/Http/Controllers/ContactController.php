@@ -16,7 +16,7 @@ class ContactController extends Controller
         $this->contactService = $contactService;
     }
 
-    public function store(StoreContactRequest $request)
+    public function store(StoreContactRequest $request): JsonResponse
     {
         try {
             $contact = $this->contactService->storeContact($request->validated());
@@ -26,7 +26,6 @@ class ContactController extends Controller
                 'message' => 'Данные успешно сохранены!',
                 'data' => $contact
             ]);
-
         } catch (\Exception $e) {
             \Log::error('Ошибка: ' . $e->getMessage());
             return response()->json([
